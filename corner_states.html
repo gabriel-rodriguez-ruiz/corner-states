@@ -3,10 +3,9 @@
   <head>
     <title>Estados de esquina</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Yihui Xie" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
   <body>
     <textarea id="source">
@@ -16,40 +15,87 @@ class: center, middle, inverse, title-slide
 # Estados de esquina
 ]
 .subtitle[
-## ⚔<br/>o lo que pude entender sobre ellos
-]
-.author[
-### Yihui Xie
-]
-.institute[
-### RStudio, PBC
-]
-.date[
-### 2016/12/12 (updated: 2022-06-15)
+## ⚔<br/>Superconductividad topológica de segundo orden
 ]
 
 ---
 
+# Paper
 
-```
-## 
-  0%|          | 0/11 [00:00&lt;?, ?it/s]
-  9%|9         | 1/11 [00:00&lt;00:01,  7.61it/s]
- 18%|#8        | 2/11 [00:00&lt;00:01,  6.59it/s]
- 27%|##7       | 3/11 [00:00&lt;00:01,  6.95it/s]
- 36%|###6      | 4/11 [00:00&lt;00:01,  6.51it/s]
- 45%|####5     | 5/11 [00:00&lt;00:00,  6.52it/s]
- 55%|#####4    | 6/11 [00:00&lt;00:00,  6.39it/s]
- 64%|######3   | 7/11 [00:01&lt;00:00,  6.52it/s]
- 73%|#######2  | 8/11 [00:01&lt;00:00,  6.74it/s]
- 82%|########1 | 9/11 [00:01&lt;00:00,  6.76it/s]
- 91%|######### | 10/11 [00:01&lt;00:00,  6.70it/s]
-100%|##########| 11/11 [00:01&lt;00:00,  6.73it/s]
-                                               
-```
-&lt;iframe src="holomap.html" width=100% height=100%&gt;&lt;/iframe&gt;
+&lt;img src="images/title.png", width="100%"&gt;
+
+- Los aislantes y superconductores topológicos *convencionales* (de dimensión *d*) exhiben estados de borden sin gap en los bordes de dimensión *d-1*.
+- Un superconductor topológico 2D de **segundo orden** presenta estados de borde de *Majorana* en las esquinas de una muestra rectangular.
+
+&lt;img src="images/2D.png", width="25%"&gt;
+&lt;img src="images/3D.png", width="25%"&gt;
+
+---
+# Estados ligados de Majorana en una pared de dominio
+
+- Espectro de un aislante topológico 2D con estados de borde helicoidales
+
+&lt;img src="images/TI.png", width="40%"&gt;&lt;img src="images/edge_statesTI_edited.png", width="50%"&gt;
+- Linealizando alrededor de `\(k=0\)`, el término cinético es un Hamiltoniano de Dirac:
+`$$H_{kin} = -i\hbar v_F \int dx \left[ R^\dagger(x)\partial_xR(x) - L^\dagger(x)\partial_x L(x)\right]$$`
+---
+# Mecanismos para abrir gaps en los estados de borde 1D
+
+.pull-left[&lt;img src="images/edge_statesTI.png", width="100%"&gt;]
+.pull-right[- "Efecto Zeeman" (interacción spin-órbita de Rashba)
+`$$H_Z = \Gamma \int dx R^\dagger(x) L(x) + H.c.$$`
+- Superconductividad inducida de tipo `\(s\)`
+`$$H_{sc} = \Delta \int dx R(x)L(x) + H.c.$$`
+]
+- Para ver qué mecanismo domina definamos:
+
+`$$\Delta_- = \Gamma - \Delta$$`
 ---
 
+&lt;iframe src="holomap.html" width=100% height=60%&gt;&lt;/iframe&gt;
+
+### El bulk está siempre gapeado siempre a menos que:$$\Delta_- = \Delta - \Gamma=0$$
+---
+&lt;img src="images/domain_wall.png", width="100%"&gt;
+- `\(\Delta_- = \Delta - \Gamma= 0\)` separa dos fases topológicamente distintas.
+- En la interfase entre la región dominada por el campo magnético `\((\Delta_- &lt;0)\)` y la región dominada por la superconductividad `\((\Delta_- &gt;0)\)` se encuentra un **estado localizado** *de Majorana*.
+- El estado que se forma en la *pared de dominio* está protegido por la simetría de *partícula-agujero*.
+
+---
+#Estrategia para obtener estados de esquina
+- Partir de un aislante/superconductor topológico de **primer orden** con estados de borde *helicoidales*.
+- Agregar alguna interacción *perturbativamente* que abra un gap en el espectro de los estados de borde.
+- Dependiendo de las simetrías del modelo y de la geometría de la muestra, el gap generado puede no ser del mismo tamaño o del mismo tipo en los diferentes bordes.
+- Así aparece una *pared de dominio* entre diferentes mecanismos de apertura de gaps y su consecuente estado localizado.
+
+---
+# Esquema
+
+&lt;img src="images/esquema.png", width="100%"&gt;
+
+- En el trabajo consideraron una *juntura Josephson* compuesta por:
+  - 2 capas (azules) de gases de electrones bidimensionales con interacción spin-órbita acopladas por una interacción de tuneleo `\(\Gamma\)`.
+  - Una barrera (naranja).
+  - 2 superconductores (verdes) de tipo `\(s\)` que inducen superconductividad.
+- Se aplica un campo magnético a través del loop para controlar la diferencia de fase `\(\phi\)` entre los superconductores.
+- Perturbativamente, se agrega un campo magnético en el plano `\(xy\)`.
+
+---
+# Diagrama de fases
+
+.pull-left[&lt;img src="images/diagrama.png", width="100%"&gt;]
+.pull-right[$$E_{\pm}^2 = \epsilon_k^2+\Delta^2+\Gamma^2+(\alpha k)^2$$ `$$\pm 2\sqrt{\epsilon_k^2(\Gamma^2+(\alpha k)^2)+ \Delta^2\Gamma^2}$$`
+- Sin campo Zeeman, la fase topológica helicoidal (HTSC) ya la conocemos.]
+&lt;iframe src="holomap.html" width=100% height=50%&gt;&lt;/iframe&gt;
+
+---
+# Fase topológica helicoidal
+
+.pull-left[&lt;img src="images/diagrama.png", width="100%"&gt;]
+.pull-right[- Si `\(\Gamma &gt; \Delta\)`, los estados del bulk están gapeados, mientras que ambos bordes contienen pares de estdos borde degenerados y propagantes.
+]
+
+&lt;img src="images/helicoidal.png", width="90%"&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
